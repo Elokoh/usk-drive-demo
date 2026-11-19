@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usk Drive School of Motoring — Driving Lessons in Newport</title>
+<meta name="description" content="Patient, DVSA-approved driving lessons in Newport. Weekly lessons, intensive courses and Pass Plus across Beechwood, Caerleon, Malpas, Rogerstone and all NP postcodes. First 2-hour taster £60.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23007f24'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial' font-size='34' font-weight='900' fill='%23f7f7f7' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* primitives (from locked palette) */
+  --p-sage:   oklch(0.74 0.105 152);   /* #85C093 */
+  --p-green:  oklch(0.50 0.135 148);   /* #007f24 */
+  --p-green-d:oklch(0.42 0.11 148);
+  --p-ink:    oklch(0.29 0.05 170);    /* #09352e */
+  --p-paper:  oklch(0.975 0.003 100);  /* #f7f7f7 */
+  --p-grey-1: oklch(0.70 0.015 190);   /* #9ba8a7 */
+  --p-grey-2: oklch(0.55 0.02 180);    /* #71807e */
+  /* semantic */
+  --surface: var(--p-paper);
+  --surface-tint: var(--p-sage);
+  --text: var(--p-ink);
+  --text-2: var(--p-grey-2);
+  --accent: var(--p-green);
+  --accent-hover: var(--p-green-d);
+  --line: oklch(0.29 0.05 170 / 0.16);
+  /* component */
+  --radius-card: 16px;
+  --radius-pill: 96px;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  font:400 16.5px/1.7 var(--font-body);
+  color:var(--text);background:var(--surface);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+::selection{background:var(--p-ink);color:var(--p-paper)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+button{cursor:pointer;font:inherit;color:inherit}
+
+/* ---------- layout helpers ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+.sec-label{
+  font:700 13px/1 var(--font-mono);letter-spacing:.08em;
+  color:var(--text-2);text-transform:lowercase;margin-bottom:20px;display:block;
+}
+.sec-title{
+  font:700 clamp(30px,4.6vw,52px)/1.15 var(--font-display);
+  letter-spacing:-0.02em;text-wrap:balance;
+}
+@media(min-width:1024px){.sec-title{margin-left:-14px}} /* intentional misalignment */
+.sec-sub{max-width:62ch;margin-top:16px;color:var(--text-2)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font:600 15.5px/1 var(--font-body);
+  padding:16px 26px;border-radius:var(--radius-pill);
+  border:2px solid var(--p-ink);
+  transition:background-color .2s ease,color .2s ease,transform .2s ease;
+  min-height:48px;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn-outline{background:transparent;color:var(--text)}
+.btn-outline:hover{background:var(--p-sage)}
+.btn svg{flex:none}
+
+/* ---------- header ---------- */
+.site-header{
+  position:fixed;inset:0 0 auto 0;z-index:50;
+  background:color-mix(in oklch, var(--surface) 88%, transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.brand{display:flex;align-items:center;gap:12px;font:700 19px/1 var(--font-display);letter-spacing:-0.01em;color:var(--text)}
+.brand-badge{
+  width:38px;height:38px;border-radius:10px;background:var(--accent);
+  display:grid;place-items:center;color:#fff;font:700 21px/1 var(--font-display);
+}
+.demo-tag{
+  font:700 10.5px/1 var(--font-mono);letter-spacing:.1em;color:var(--p-ink);
+  border:1.5px dashed var(--p-ink);border-radius:var(--radius-pill);padding:5px 10px;
+  transform:rotate(-3deg);
+}
+.main-nav{display:flex;gap:28px}
+.main-nav a{
+  font:500 15px/1 var(--font-body);color:var(--text);
+  padding:8px 2px;border-bottom:2px solid transparent;
+  transition:border-color .2s ease,color .2s ease;
+}
+.main-nav a:hover{color:var(--accent);border-color:var(--accent)}
+.header-call{display:inline-flex}
+.nav-toggle{
+  display:none;background:none;border:2px solid var(--p-ink);border-radius:var(--radius-pill);
+  width:48px;height:48px;place-items:center;
+}
+@media(max-width:900px){
+  .main-nav{
+    position:fixed;top:69px;left:0;right:0;z-index:49;
+    flex-direction:column;gap:0;background:var(--surface);
+    border-bottom:2px solid var(--p-ink);
+    max-height:0;overflow:hidden;transition:max-height .25s ease;
+  }
+  .main-nav.open{max-height:420px}
+  .main-nav a{padding:18px 24px;border-top:1px solid var(--line);font-size:17px}
+  .header-call{display:none}
+  .nav-toggle{display:grid}
+}
+
+/* ---------- hero ---------- */
+.hero{
+  padding:150px 0 0;min-height:92dvh;display:flex;flex-direction:column;justify-content:center;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, oklch(0.74 0.105 152 / .55), transparent 60%),
+    linear-gradient(var(--p-paper), oklch(0.93 0.05 150));
+  position:relative;overflow:hidden;
+}
+.hero::after{ /* grain */
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-grid{display:grid;gap:44px;align-items:center;position:relative;z-index:1;padding-bottom:64px}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+.hero h1{
+  font:700 clamp(40px,6.2vw,76px)/1.04 var(--font-display);
+  letter-spacing:-0.03em;text-wrap:balance;margin:14px 0 22px;
+}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{max-width:52ch;font-size:18px;color:var(--text-2)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.trust-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;list-style:none}
+.trust-chips li{
+  font:600 13px/1 var(--font-mono);color:var(--text);
+  border:1.5px solid var(--p-ink);border-radius:var(--radius-pill);
+  padding:9px 15px;background:oklch(1 0 0 / .55);
+}
+.hero-media{position:relative}
+.hero-media img{
+  width:100%;border-radius:24px;border:2px solid var(--p-ink);
+  box-shadow:10px 10px 0 var(--p-sage);
+}
+.hero-media figcaption{
+  position:absolute;left:18px;bottom:18px;
+  font:700 12.5px/1.4 var(--font-mono);color:var(--p-ink);
+  background:var(--p-paper);border:1.5px solid var(--p-ink);border-radius:var(--radius-pill);
+  padding:9px 16px;
+}
+
+/* ---------- marquee ---------- */
+.marquee{
+  background:var(--p-ink);color:var(--p-paper);
+  overflow:hidden;padding:16px 0;border-top:2px solid var(--p-ink);border-bottom:2px solid var(--p-ink);
+}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 28s linear infinite}
+.marquee span{
+  font:700 15px/1 var(--font-mono);letter-spacing:.12em;white-space:nowrap;padding:0 26px;
+  display:inline-flex;align-items:center;gap:26px;
+}
+.marquee .dot{color:var(--p-sage)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- lessons grid ---------- */
+.lesson-grid{display:grid;gap:0;margin-top:48px;border-top:2px solid var(--p-ink);border-left:2px solid var(--p-ink)}
+@media(min-width:760px){.lesson-grid{grid-template-columns:1fr 1fr}}
+.lesson-cell{
+  padding:38px 32px;border-right:2px solid var(--p-ink);border-bottom:2px solid var(--p-ink);
+  transition:background-color .2s ease;
+}
+.lesson-cell:hover{background:oklch(0.74 0.105 152 / .18)}
+.lesson-cell .num{font:700 13px/1 var(--font-mono);color:var(--accent)}
+.lesson-cell h3{font:700 24px/1.2 var(--font-display);letter-spacing:-0.01em;margin:14px 0 12px}
+.lesson-cell p{color:var(--text-2);max-width:46ch}
+
+/* ---------- prices ---------- */
+.price-list{margin-top:48px;border-top:2px solid var(--p-ink)}
+.price-row{
+  display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  padding:26px 8px;border-bottom:1px solid var(--line);
+  transition:background-color .2s ease;
+}
+.price-row:hover{background:oklch(0.74 0.105 152 / .12)}
+.price-row .name{font:600 19px/1.3 var(--font-display)}
+.price-row .note{font-size:14px;color:var(--text-2);margin-top:4px}
+.price-row .amount{font:700 26px/1 var(--font-display);white-space:nowrap}
+.price-row .amount small{font:700 13px/1 var(--font-mono);color:var(--text-2)}
+.price-row.featured{background:oklch(0.74 0.105 152 / .25);border-bottom-color:var(--p-ink)}
+.price-note{margin-top:22px;font-size:14.5px;color:var(--text-2)}
+
+/* ---------- areas ---------- */
+.areas-grid{display:grid;gap:40px;margin-top:8px}
+@media(min-width:900px){.areas-grid{grid-template-columns:1fr 1fr;align-items:center}}
+.area-chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.area-chips li{
+  font:500 15px/1 var(--font-body);padding:12px 20px;
+  border:1.5px solid var(--p-ink);border-radius:var(--radius-pill);
+  transition:background-color .2s ease,color .2s ease;
+}
+.area-chips li:hover{background:var(--p-ink);color:var(--p-paper)}
+
+/* ---------- about ---------- */
+.about{background:oklch(0.93 0.045 150);border-top:2px solid var(--p-ink);border-bottom:2px solid var(--p-ink)}
+.about-grid{display:grid;gap:44px;align-items:center}
+@media(min-width:900px){.about-grid{grid-template-columns:.85fr 1.15fr}}
+.about-photo img{
+  border-radius:24px;border:2px solid var(--p-ink);
+  box-shadow:-10px 10px 0 var(--p-sage);width:100%;max-width:430px;
+}
+.about-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.about-facts div{background:var(--p-paper);padding:18px}
+.about-facts dt{font:700 12px/1 var(--font-mono);letter-spacing:.08em;color:var(--text-2);margin-bottom:8px}
+.about-facts dd{font:700 20px/1.2 var(--font-display)}
+
+/* ---------- reviews ---------- */
+.review-list{margin-top:48px;border-top:2px solid var(--p-ink)}
+.review{padding:34px 8px;border-bottom:1px solid var(--line);display:grid;gap:14px}
+@media(min-width:820px){.review{grid-template-columns:200px 1fr;gap:40px}}
+.review-meta{font:700 13px/1.6 var(--font-mono);color:var(--text-2)}
+.review-meta strong{display:block;font:700 17px/1.3 var(--font-display);color:var(--text)}
+.stars{display:block;color:var(--accent);letter-spacing:2px;font-size:14px;margin-top:6px}
+.review blockquote{font:500 19px/1.6 var(--font-display);letter-spacing:-0.005em;max-width:64ch}
+
+/* ---------- faq ---------- */
+.faq-list{margin-top:48px;border-top:2px solid var(--p-ink)}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list summary{
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:24px 8px;font:600 19px/1.35 var(--font-display);cursor:pointer;
+  transition:color .2s ease;
+}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:hover{color:var(--accent)}
+.faq-list summary .chev{flex:none;transition:transform .25s ease}
+.faq-list details[open] summary .chev{transform:rotate(45deg)}
+.faq-list details p{padding:0 8px 26px;color:var(--text-2);max-width:70ch}
+
+/* ---------- contact ---------- */
+.contact{background:var(--p-ink);color:var(--p-paper)}
+.contact .sec-label{color:var(--p-sage)}
+.contact .sec-sub{color:oklch(0.85 0.02 160)}
+.contact-grid{display:grid;gap:48px;margin-top:48px}
+@media(min-width:920px){.contact-grid{grid-template-columns:1fr 1fr}}
+.contact-methods{display:grid;gap:14px;align-content:start}
+.contact-card{
+  display:flex;align-items:center;gap:18px;padding:22px 24px;
+  border:1.5px solid oklch(0.975 0.003 100 / .35);border-radius:var(--radius-card);
+  color:var(--p-paper);transition:background-color .2s ease,border-color .2s ease;
+}
+.contact-card:hover{background:oklch(0.975 0.003 100 / .08);border-color:var(--p-sage)}
+.contact-card .k{font:700 12px/1 var(--font-mono);letter-spacing:.1em;color:var(--p-sage);display:block;margin-bottom:6px}
+.contact-card .v{font:700 20px/1.2 var(--font-display)}
+.contact-card svg{flex:none;color:var(--p-sage)}
+.form-panel{background:var(--p-paper);color:var(--text);border-radius:24px;border:2px solid var(--p-sage);padding:34px}
+.form-panel h3{font:700 24px/1.2 var(--font-display);margin-bottom:8px}
+.form-panel > p{color:var(--text-2);font-size:15px;margin-bottom:24px}
+.field{margin-bottom:18px}
+.field label{display:block;font:700 12.5px/1 var(--font-mono);letter-spacing:.06em;color:var(--text-2);margin-bottom:9px}
+.field input,.field select,.field textarea{
+  width:100%;font:400 16px/1.4 var(--font-body);color:var(--text);
+  background:#fff;border:1.5px solid var(--p-ink);border-radius:12px;padding:14px 16px;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--accent);box-shadow:0 0 0 3px oklch(0.50 0.135 148 / .25);
+}
+.field .err{display:none;font:600 13px/1.4 var(--font-mono);color:oklch(0.55 0.2 25);margin-top:7px}
+.field.invalid input,.field.invalid textarea{border-color:oklch(0.55 0.2 25)}
+.field.invalid .err{display:block}
+.form-submit{width:100%;justify-content:center;font-size:16.5px}
+.form-success{display:none;text-align:center;padding:40px 10px}
+.form-success.show{display:block}
+.form-success .tick{
+  width:64px;height:64px;border-radius:50%;background:var(--accent);color:#fff;
+  display:grid;place-items:center;margin:0 auto 20px;
+}
+.form-success h4{font:700 26px/1.2 var(--font-display);margin-bottom:10px}
+.form-success p{color:var(--text-2)}
+
+/* ---------- footer ---------- */
+.site-footer{padding:44px 0 110px;background:var(--p-ink);color:oklch(0.75 0.03 160);border-top:1px solid oklch(0.975 0.003 100 / .15)}
+@media(min-width:768px){.site-footer{padding:44px 0}}
+.footer-inner{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;font-size:14px}
+.footer-inner a{color:var(--p-sage)}
+.footer-inner a:hover{color:var(--p-paper)}
+
+/* ---------- sticky mobile call bar ---------- */
+.sticky-call{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;
+  padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+  background:var(--p-paper);border-top:2px solid var(--p-ink);
+}
+.sticky-call .btn{flex:1;justify-content:center;padding:14px 10px;font-size:14.5px}
+@media(max-width:767px){.sticky-call{display:flex}}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Usk Drive — back to top">
+      <span class="brand-badge">L</span>
+      Usk Drive
+      <span class="demo-tag">DEMO</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#lessons">Lessons</a>
+      <a href="#prices">Prices</a>
+      <a href="#areas">Areas</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary header-call" href="tel:+441632960123">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      01632 960 123
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="sec-label">(driving lessons · newport)</span>
+        <h1>Learn to drive with your nerves <em>left at the kerb.</em></h1>
+        <p class="hero-sub">Patient, one-to-one tuition from a DVSA-approved instructor who's taught Newport learners for 12 years. Manual or automatic, weekly or intensive — we'll get you test-ready without the shouting.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:+441632960123">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Rhys now
+          </a>
+          <a class="btn btn-outline" href="#contact">Book a £60 taster →</a>
+        </div>
+        <ul class="trust-chips">
+          <li>DVSA Approved (ADI)</li>
+          <li>92% first-time pass rate</li>
+          <li>★ 4.9 · 120+ reviews</li>
+          <li>Free pickup in NP postcodes</li>
+        </ul>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/hero-car.jpg" alt="The Usk Drive tuition car — a white hatchback with L plates — parked on a quiet Newport street" width="1024" height="576" fetchpriority="high">
+        <figcaption>The tuition car — dual controls, air con, no judgement</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>Pass first time <i class="dot">●</i></span>
+      <span>Usk Drive <i class="dot">●</i></span>
+      <span>Newport &amp; Caerleon <i class="dot">●</i></span>
+      <span>Patient tuition <i class="dot">●</i></span>
+      <span>Manual &amp; automatic <i class="dot">●</i></span>
+      <span>Nervous drivers welcome <i class="dot">●</i></span>
+    </div>
+  </div>
+
+  <!-- LESSONS -->
+  <section id="lessons">
+    <div class="wrap">
+      <span class="sec-label reveal">(lessons)</span>
+      <h2 class="sec-title reveal">However you want to learn, there's a way in.</h2>
+      <div class="lesson-grid">
+        <div class="lesson-cell reveal">
+          <span class="num">(01)</span>
+          <h3>Weekly lessons</h3>
+          <p>The classic route. One or two hours a week at times that suit you — before college, after work, weekends. Structured syllabus so you always know what's next.</p>
+        </div>
+        <div class="lesson-cell reveal">
+          <span class="num">(02)</span>
+          <h3>Intensive courses</h3>
+          <p>Test booked and time short? 15–30 hour courses over one to three weeks, with your practical test fast-tracked at the end. Ideal for students home for the holidays.</p>
+        </div>
+        <div class="lesson-cell reveal">
+          <span class="num">(03)</span>
+          <h3>Nervous &amp; refresher</h3>
+          <p>Had a break, a bad experience, or a licence you've barely used? Calm, unhurried sessions that rebuild your confidence at your pace — no pressure, ever.</p>
+        </div>
+        <div class="lesson-cell reveal">
+          <span class="num">(04)</span>
+          <h3>Pass Plus &amp; motorway</h3>
+          <p>Just passed? Six extra hours covering motorways, night driving and all-weather skills — and most insurers will cut your first premium for it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section id="prices">
+    <div class="wrap">
+      <span class="sec-label reveal">(prices)</span>
+      <h2 class="sec-title reveal">Honest prices. No packages you don't need.</h2>
+      <div class="price-list">
+        <div class="price-row featured reveal">
+          <div>
+            <div class="name">2-hour taster lesson</div>
+            <div class="note">New learners only — meet the car, learn the controls, drive on your first session</div>
+          </div>
+          <div class="amount">£60</div>
+        </div>
+        <div class="price-row reveal">
+          <div>
+            <div class="name">Pay-as-you-go</div>
+            <div class="note">Per hour, manual or automatic</div>
+          </div>
+          <div class="amount">£36<small>/hr</small></div>
+        </div>
+        <div class="price-row reveal">
+          <div>
+            <div class="name">5-hour block</div>
+            <div class="note">Save £5 — most popular for steady progress</div>
+          </div>
+          <div class="amount">£175</div>
+        </div>
+        <div class="price-row reveal">
+          <div>
+            <div class="name">10-hour block</div>
+            <div class="note">Save £20 — best value for test preparation</div>
+          </div>
+          <div class="amount">£340</div>
+        </div>
+        <div class="price-row reveal">
+          <div>
+            <div class="name">Intensive courses</div>
+            <div class="note">15–30 hours over 1–3 weeks, test booking included</div>
+          </div>
+          <div class="amount">from £525</div>
+        </div>
+        <div class="price-row reveal">
+          <div>
+            <div class="name">Pass Plus</div>
+            <div class="note">Full 6-hour DVSA course</div>
+          </div>
+          <div class="amount">£200</div>
+        </div>
+      </div>
+      <p class="price-note reveal">Card, bank transfer or cash. 48 hours' notice for cancellations. Gift vouchers available — parents, this is the birthday present that actually gets used.</p>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section id="areas">
+    <div class="wrap">
+      <span class="sec-label reveal">(areas covered)</span>
+      <div class="areas-grid">
+        <div>
+          <h2 class="sec-title reveal">Based in Newport. On your doorstep.</h2>
+          <p class="sec-sub reveal">Free pickup from home, work, college or uni anywhere below — including Newport city centre and the Coleg Gwent campuses. Test routes around the Newport DVSA centre covered in every lesson plan.</p>
+        </div>
+        <ul class="area-chips reveal">
+          <li>Beechwood</li><li>Maindee</li><li>St Julians</li><li>Caerleon</li>
+          <li>Malpas</li><li>Rogerstone</li><li>Bassaleg</li><li>Bettws</li>
+          <li>Ringland</li><li>Pill</li><li>Duffryn</li><li>Langstone</li>
+          <li>Alway</li><li>Shaftesbury</li><li>Cwmbran</li><li>Risca</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-photo reveal">
+        <img src="assets/instructor.jpg" alt="Rhys Morgan, DVSA-approved driving instructor, leaning on the Usk Drive tuition car" width="512" height="512" loading="lazy">
+      </div>
+      <div>
+        <span class="sec-label reveal">(your instructor)</span>
+        <h2 class="sec-title reveal">I'm Rhys. I've sat where you're about to sit.</h2>
+        <p class="sec-sub reveal" style="max-width:56ch">Twelve years ago I was a nervous 17-year-old stalling at the Malpas Road lights. Now I'm a DVSA-approved instructor (ADI) who's helped hundreds of Newport learners pass — including plenty who were convinced they never would. My teaching is calm, structured and honest: you'll always know what you're doing well and exactly what we're fixing next.</p>
+        <dl class="about-facts reveal">
+          <div><dt>YEARS TEACHING</dt><dd>12</dd></div>
+          <div><dt>FIRST-TIME PASS RATE</dt><dd>92%</dd></div>
+          <div><dt>PUPILS PASSED</dt><dd>400+</dd></div>
+          <div><dt>GRADE</dt><dd>ADI · A</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="wrap">
+      <span class="sec-label reveal">(reviews)</span>
+      <h2 class="sec-title reveal">What Newport learners say.</h2>
+      <div class="review-list">
+        <div class="review reveal">
+          <div class="review-meta"><strong>Megan T.</strong>Caerleon · passed first time<span class="stars" aria-label="5 out of 5 stars">★★★★★</span></div>
+          <blockquote>"I'd failed twice with another school and was ready to give up. Rhys spotted exactly what was going wrong in the first ten minutes. Passed with two minors — I genuinely enjoyed the lessons."</blockquote>
+        </div>
+        <div class="review reveal">
+          <div class="review-meta"><strong>Callum R.</strong>Bettws · intensive course<span class="stars" aria-label="5 out of 5 stars">★★★★★</span></div>
+          <blockquote>"Did the 3-week intensive before going back to uni. Everything was organised for me, even the test booking. Worth every penny and my insurance is cheaper after Pass Plus too."</blockquote>
+        </div>
+        <div class="review reveal">
+          <div class="review-meta"><strong>Priya S.</strong>Malpas · nervous driver<span class="stars" aria-label="5 out of 5 stars">★★★★★</span></div>
+          <blockquote>"As someone with real driving anxiety I can't recommend Rhys enough. Never once made me feel rushed or stupid. My whole family now learns with him — my brother starts next month."</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <span class="sec-label reveal">(faq)</span>
+      <h2 class="sec-title reveal">The questions everyone asks first.</h2>
+      <div class="faq-list">
+        <details class="reveal">
+          <summary>How many lessons will I need?<span class="chev" aria-hidden="true">＋</span></summary>
+          <p>The DVSA average is around 45 hours of professional tuition plus private practice — but most of my pupils are test-ready in 30–40 hours because every lesson follows a structured plan. After your taster I'll give you an honest estimate, not a sales pitch.</p>
+        </details>
+        <details class="reveal">
+          <summary>Can you pick me up from college or work?<span class="chev" aria-hidden="true">＋</span></summary>
+          <p>Yes — free pickup and drop-off anywhere in the areas listed above, including Coleg Gwent, Newport city centre and the retail parks. Many pupils start their lesson at college and finish at home.</p>
+        </details>
+        <details class="reveal">
+          <summary>Do you teach automatic as well as manual?<span class="chev" aria-hidden="true">＋</span></summary>
+          <p>Both. The manual car is a Ford Fiesta with dual controls; the automatic is a Hyundai i20. Bear in mind an automatic licence only covers automatics — I'm happy to talk through which suits you.</p>
+        </details>
+        <details class="reveal">
+          <summary>Can you help with the theory test?<span class="chev" aria-hidden="true">＋</span></summary>
+          <p>Every pupil gets free access to a theory app with all the official DVSA questions and hazard perception clips, plus I'll check your progress and flag weak spots before you book.</p>
+        </details>
+        <details class="reveal">
+          <summary>What if I need to cancel a lesson?<span class="chev" aria-hidden="true">＋</span></summary>
+          <p>Life happens — give me 48 hours' notice and there's no charge, we'll just rebook. Inside 48 hours the lesson is chargeable, because I can't fill the slot at short notice.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="sec-label reveal">(get on the road)</span>
+      <h2 class="sec-title reveal">Your first lesson is £60. Your licence is closer than you think.</h2>
+      <p class="sec-sub reveal">Call, WhatsApp or send the form — I'll get back to you the same day, usually within the hour between lessons.</p>
+      <div class="contact-grid">
+        <div class="contact-methods">
+          <a class="contact-card reveal" href="tel:+441632960123">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span><span class="k">CALL OR TEXT</span><span class="v">01632 960 123</span></span>
+          </a>
+          <a class="contact-card reveal" href="https://wa.me/441632960123?text=Hi%20Rhys%2C%20I%27d%20like%20to%20book%20a%20taster%20lesson" target="_blank" rel="noopener">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.57 14.86L2 22l5.3-1.39A9.9 9.9 0 1 0 12.04 2zm0 1.67a8.23 8.23 0 1 1-4.2 15.32l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1 7-12.61zm-3.5 4.68c-.19 0-.5.07-.76.35-.26.29-1 .98-1 2.38s1.02 2.76 1.16 2.95c.14.19 2 3.2 4.93 4.36 2.44.96 2.94.77 3.47.72.53-.05 1.7-.7 1.94-1.37.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33-.29-.14-1.7-.84-1.97-.94-.26-.09-.46-.14-.65.15-.19.28-.75.93-.92 1.12-.17.19-.34.21-.63.07a8.2 8.2 0 0 1-2.42-1.5 9.1 9.1 0 0 1-1.67-2.08c-.17-.29-.02-.45.13-.6.14-.13.29-.34.44-.5.14-.17.19-.29.29-.48.09-.19.04-.36-.03-.5-.07-.15-.65-1.58-.9-2.16-.23-.56-.47-.49-.65-.5z"/></svg>
+            <span><span class="k">WHATSAPP</span><span class="v">Message me →</span></span>
+          </a>
+          <a class="contact-card reveal" href="mailto:hello@uskdrive.example?subject=Taster%20lesson%20enquiry">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <span><span class="k">EMAIL</span><span class="v">hello@uskdrive.example</span></span>
+          </a>
+        </div>
+        <div class="form-panel reveal">
+          <form id="enquiryForm" novalidate>
+            <h3>Book your £60 taster</h3>
+            <p>Tell me a bit about you and I'll come back with times this week.</p>
+            <div class="field" data-field="name">
+              <label for="fName">YOUR NAME</label>
+              <input id="fName" name="name" type="text" autocomplete="name" placeholder="e.g. Megan Thomas">
+              <span class="err">Please tell me your name.</span>
+            </div>
+            <div class="field" data-field="phone">
+              <label for="fPhone">MOBILE NUMBER</label>
+              <input id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="07…">
+              <span class="err">A UK mobile number helps me reply fastest.</span>
+            </div>
+            <div class="field" data-field="type">
+              <label for="fType">I'M INTERESTED IN</label>
+              <select id="fType" name="type">
+                <option value="taster">£60 taster lesson</option>
+                <option value="weekly">Weekly lessons</option>
+                <option value="intensive">Intensive course</option>
+                <option value="refresher">Refresher / nervous driver</option>
+                <option value="passplus">Pass Plus</option>
+              </select>
+            </div>
+            <div class="field" data-field="message">
+              <label for="fMsg">ANYTHING I SHOULD KNOW? (OPTIONAL)</label>
+              <textarea id="fMsg" name="message" rows="3" placeholder="e.g. I finish college at 4pm, live in Malpas"></textarea>
+              <span class="err"></span>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Send my enquiry →</button>
+          </form>
+          <div class="form-success" id="formSuccess" role="status" tabindex="-1">
+            <div class="tick">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h4>Lovely — enquiry noted.</h4>
+            <p id="successText">Thanks! On a live site this goes straight to the instructor's phone. For the demo, nothing was sent.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year">2026</span> Usk Drive School of Motoring · Newport</span>
+    <span>Demonstration website — business details are fictional.</span>
+    <a href="mailto:hello@uskdrive.example">hello@uskdrive.example</a>
+  </div>
+</footer>
+
+<div class="sticky-call">
+  <a class="btn btn-primary" href="tel:+441632960123">Call now</a>
+  <a class="btn btn-outline" href="https://wa.me/441632960123?text=Hi%20Rhys%2C%20I%27d%20like%20to%20book%20a%20taster%20lesson" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-outline" href="#contact">Enquire</a>
+</div>
+
+<script src="src/main.js"></script>
+</body>
+</html>
